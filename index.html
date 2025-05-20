@@ -391,7 +391,7 @@ const products = [
   { id: 69, name: " SECADORA PORTOFINO DORADA BABYLISS", price: 135, img: "SECADORA PORTOFINO DORADA BABYLISS.PNG" },
   { id: 70, name: " Plancha dorada graphite", price: 135, img: "plancha dorada graphite.PNG" },
   { id: 71, name: "Plancha 32mm Babyliss Dorado", price: 135, img: " plancha32mmbabylissdorado (1).PNG" },
-  { id: 72, name: "Plancha Babyliss 25mm", price: 135, img: "plancha25mmbabylisss.PNG" },
+  { id: 72, name: "Plancha Babyliss 25mm", price: 135, img: "plancha25mmbabylisss (1).PNG" },
   { id: 73, name: "Secadora Ultra Gama", price: 135, img: "Secadora ultra gama.PNG" },
   { id: 74, name: "Secadora Keration Gama", price: 135, img: "Keration GAMA secador.PNG" },
   { id: 75, name: "Combo babyliss kit fx", price: 135, img: "combo babyliss kit fx.PNG" },
@@ -571,6 +571,51 @@ const products = [
     }
   }
 </script>
+<!-- Ícono flotante de pago con tarjeta -->
+<div id="pagoTarjetaBtn" style="
+  position: fixed;
+  bottom: 200px;
+  right: 20px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28px;
+  cursor: pointer;
+  z-index: 9999;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+" title="Pagar con tarjeta">
+  💳
+</div>
+
+<!-- Modal de pago -->
+<div class="modal fade" id="modalPagoTarjeta" tabindex="-1" aria-labelledby="modalPagoLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content bg-dark text-white">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalPagoLabel">Pagar con tarjeta</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body text-center">
+        <p>Realiza tu pago seguro a través de Mercado Pago.</p>
+        <a href="http://link.mercadopago.com.pe/lumilbarber" target="_blank" class="btn btn-success">Ir a pagar</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Script para abrir el modal -->
+<script>
+  document.getElementById("pagoTarjetaBtn").addEventListener("click", function () {
+    var pagoModal = new bootstrap.Modal(document.getElementById("modalPagoTarjeta"));
+    pagoModal.show();
+  });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
