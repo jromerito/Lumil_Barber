@@ -1,4 +1,4 @@
-   <!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
@@ -215,20 +215,51 @@
   font-weight: bold;
   cursor: pointer;
 }
+ .offcanvas-start {
+      background-color: #343a40;
+      color: white;
+    }
 
+    .offcanvas a {
+      color: white;
+      padding: 10px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .offcanvas a:hover {
+      background-color: #495057;
+    }
+
+    .navbar-brand {
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
-<div class="container-fluid">
-  <div class="row">
-    <!-- Sidebar -->
-    <nav class="col-md-2 sidebar d-flex flex-column align-items-start">
-      <h3 class="p-3">★LUMIL BARBER★</h3>
-      <a href="#">Inicio</a>
-      <a href="#">Productos</a>
-      
-  <a class="nav-link" href="javascript:void(0)" onclick="mostrarMensajeContacto()">Contacto</a>
+ <nav class="navbar navbar-dark bg-dark">
+  <div class="container-fluid">
+    <button class="btn btn-outline-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu">
+      ☰ Menú
+    </button>
+    <span class="navbar-brand">★ LUMIL BARBER ★</span>
+  </div>
 </nav>
+
+<!-- Sidebar offcanvas -->
+<div class="offcanvas offcanvas-start" tabindex="-1" id="sidebarMenu">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title">★ LUMIL BARBER ★</h5>
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+  </div>
+  <div class="offcanvas-body">
+    <a href="#">Inicio</a>
+    <a href="#">Productos</a>
+    <a href="javascript:void(0)" onclick="mostrarMensajeContacto()">Contacto</a>
+  </div>
+</div>
+
+ 
 
 
     <main class="col-md-10">
@@ -608,7 +639,23 @@ const products = [
     }
   }
 </script>
+<script>
+  function mostrarMensajeContacto() {
+    document.getElementById("popupContacto").style.display = "block";
+  }
+
+  function cerrarMensajeContacto() {
+    document.getElementById("popupContacto").style.display = "none";
+  }
+
+  window.onclick = function(event) {
+    const popup = document.getElementById("popupContacto");
+    if (event.target == popup) {
+      popup.style.display = "none";
+    }
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
-
